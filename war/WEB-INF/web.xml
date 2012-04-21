@@ -4,15 +4,56 @@ xmlns="http://java.sun.com/xml/ns/javaee"
 xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
-	<servlet>
-		<servlet-name>Statistics</servlet-name>
-		<servlet-class>com.statistics.StatisticsServlet</servlet-class>
-	</servlet>
+	<!--
+		<servlet>
+			<servlet-name>Test_GoogleAppEngine</servlet-name>
+			<servlet-class></servlet-class>
+		</servlet>
+	
 	<servlet-mapping>
-		<servlet-name>Statistics</servlet-name>
-		<url-pattern>/statistics</url-pattern>
+		<servlet-name>Test_GoogleAppEngine</servlet-name>
+		<url-pattern>/test_googleappengine</url-pattern>
 	</servlet-mapping>
+	-->
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
+	
+		<!-- 
+           We need to set annotation lifecycyle provider manually as org.apache.myfaces.config.annotation.NoInjectionAnnotationLifecycleProvider.
+           Other providers use some classes that are restricted on Google App Engine. 	
+        -->  
+        <context-param>
+            <param-name>org.apache.myfaces.config.annotation.LifecycleProvider</param-name>
+            <param-value>org.apache.myfaces.config.annotation.NoInjectionAnnotationLifecycleProvider</param-value>
+        </context-param>
+        
+        <!-- 
+        	Need to set a secret to avoid javax.crypto.BadPaddingException.
+        	"param-value" must be Base64 encoded.
+        	More details: http://wiki.apache.org/myfaces/Secure_Your_Application
+         -->
+        <context-param>
+	    	<param-name>org.apache.myfaces.SECRET</param-name>
+	    	<param-value>NzY1NDMyMTA=</param-value>
+	  	</context-param>
+        
+        <!--
+           Facelets configuration fragment
+        -->
+        <context-param>
+          <param-name>javax.faces.DEFAULT_SUFFIX</param-name>
+          <param-value>.xhtml</param-value>
+        </context-param>
+        
+        <servlet>
+          <servlet-name>Faces Servlet</servlet-name>
+          <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+        </servlet>
+        
+        <servlet-mapping>
+          <servlet-name>Faces Servlet</servlet-name>
+          <url-pattern>*.jsf</url-pattern>
+        </servlet-mapping>
+        
 </web-app>
