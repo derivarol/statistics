@@ -1,12 +1,12 @@
-package com.statistics.account;
+package com.statistics.user;
 
-import com.statistics.account.UserAccount.InvalidUserAccountException;
-import com.statistics.account.UserAccount.UserAccount;
-import com.statistics.account.emailAddress.EmailAddress;
-import com.statistics.account.emailAddress.InvalidEmailExceprion;
+import com.statistics.user.UserAccount.InvalidUserAccountException;
+import com.statistics.user.UserAccount.UserAccount;
+import com.statistics.user.emailAddress.EmailAddress;
+import com.statistics.user.emailAddress.InvalidEmailExceprion;
 
 
-public class AccountFoo
+public class UserFoo
 {
 
 	public static void main(String[] args) 

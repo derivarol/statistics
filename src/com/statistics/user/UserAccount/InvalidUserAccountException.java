@@ -1,4 +1,4 @@
-package com.statistics.account.UserAccount;
+package com.statistics.user.UserAccount;
 
 public class InvalidUserAccountException extends Exception
 {

@@ -1,7 +1,7 @@
-package com.statistics.account.UserAccount;
+package com.statistics.user.UserAccount;
 
-import com.statistics.account.emailAddress.EmailAddress;
-import com.statistics.account.emailAddress.InvalidEmailExceprion;
+import com.statistics.user.emailAddress.EmailAddress;
+import com.statistics.user.emailAddress.InvalidEmailExceprion;
 
 
 

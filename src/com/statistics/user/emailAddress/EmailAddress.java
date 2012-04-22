@@ -1,4 +1,4 @@
-package com.statistics.account.emailAddress;
+package com.statistics.user.emailAddress;
 
 import javax.mail.internet.InternetAddress;
 
